@@ -1,0 +1,25 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8" />
+        <title>Books List</title>
+    </head>
+    <body>
+        <h1>Books List</h1>
+        <form method="post" action="/invoice">
+            <table border="1">
+                <tr>
+                    <th>Select</th>
+                    <th>Title</th>
+                    <th>Price</th>
+                </tr>
+                <tr th:each ="book : ${books}">
+                    <td><input name="selected" th:value="${book.id}" type="checkbox" /></td>
+                    <td th:utext="${book.title}">...</td>
+                    <td th:utext="${book.price}">...</td>
+                </tr>
+            </table>
+            <input type="submit" value="SUBMIT"/>
+        </form>
+    </body>
+</html>
